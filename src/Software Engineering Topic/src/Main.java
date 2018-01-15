@@ -1,6 +1,12 @@
 import java.io.IOException;
 import java.util.Scanner;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
 
+import java.util.*;
 import com.jaunt.JauntException;
 
 public class Main {
@@ -45,12 +51,12 @@ public class Main {
       case 5:
         break;
       case 6:
+        new List();
         break;
       default:
         close();
         break;
       }
-
     }
   }
 

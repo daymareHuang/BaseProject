@@ -1,5 +1,11 @@
 import java.io.IOException;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
 import java.util.Scanner;
+import java.util.*;
 
 import com.jaunt.JauntException;
 
@@ -11,7 +17,7 @@ public class Main {
    * 創建人物.
    * 
    * @throws JauntException
-   * @throws IOException
+   * @throws IOException 
    */
   public static void main(String[] args) throws JauntException, IOException {
 
@@ -48,6 +54,7 @@ public class Main {
         case 5:
           break;
         case 6:
+          new List();
           break;
         default:
           close();

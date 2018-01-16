@@ -1,8 +1,8 @@
-
+package music_player;
 
 public interface MusicPlayer {
   
-  void play(String song);
+  void play();
   
   void stop();
   

@@ -1,17 +1,9 @@
-
-
-import java.util.Scanner;
+package music_player;
 
 public class MP3Player implements MusicPlayer {
 
-  private Scanner scanner;
-
-  public void play(String song) {
-    
-    scanner = new Scanner(System.in);
-    System.out.println("Please enter the name of song.");
-    song = scanner.nextLine();
-    System.out.println("Playing " + song);
+  public void play() {
+    System.out.printf("Playing ");
   }
 
   public void stop() {

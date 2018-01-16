@@ -5,6 +5,8 @@ import java.util.Scanner;
 import org.junit.Assert;
 import org.junit.Test;
 
+import com.jaunt.JauntException;
+
 public class GoogleScraperDemoTest {
   GoogleScraperDemo google = new GoogleScraperDemo();
   Scanner scanner = new Scanner(System.in);
@@ -15,21 +17,25 @@ public class GoogleScraperDemoTest {
   @Test
   public void testgetKeyword() throws NotEnglishException {
     google.setKeyword();
-    Assert.assertEquals("False",google.getKeyword(),google.getKeyword());
-    
+    Assert.assertEquals("False", google.getKeyword(), google.getKeyword());
+
     try {
       google.setKeyword();
-    }catch(NotEnglishException e){
+    } catch (NotEnglishException e) {
       e.printStackTrace();
     }
-    
-    
-    
+
   }
 
+  @Test
+  public void testGoogleSearch() {
   
-  
-
-  
+      try {
+        google.GoogleSearch();
+      } catch (JauntException e) {
+        e.printStackTrace();
+      }
+   
+  }
 
 }

@@ -14,7 +14,7 @@ public class Main {
   static People people = new People();
 
   /**
-   * ³Ğ«Ø¤Hª«.
+   * å‰µå»ºäººç‰©.
    * 
    * @throws JauntException
    * @throws IOException 
@@ -25,17 +25,18 @@ public class Main {
     Scanner scanner = new Scanner(System.in);
     GoogleScraperDemo googleScraperDemo = new GoogleScraperDemo();
     Music music = new Music();
+    CheckSchedule check = new CheckSchedule();
     open();
     people.setPeople();
 
     while (true) {
       try {
-        System.out.println("1:¥i¨ó§Uªº¤u¨ã");
-        System.out.println("2:Åã¥Ü¤Hª«¸ê°T");
-        System.out.println("3:Åã¥Ü¤Hª«¸ê°T");
-        System.out.println("4:ÀËµøÅª®Ñ¶i«×");
-        System.out.println("5:®T¼Ö¥\¯à");
-        System.out.println("6:«Ø¥ßªí®æ");
+        System.out.println("1:å¯å”åŠ©çš„å·¥å…·");
+        System.out.println("2:é¡¯ç¤ºäººç‰©è³‡è¨Š");
+        System.out.println("3:é¡¯ç¤ºäººç‰©è³‡è¨Š");
+        System.out.println("4:æª¢è¦–è®€æ›¸é€²åº¦");
+        System.out.println("5:å¨›æ¨‚åŠŸèƒ½");
+        System.out.println("6:å»ºç«‹è¡¨æ ¼");
         in = scanner.nextInt();
         switch (in) {
         case 1:
@@ -50,6 +51,7 @@ public class Main {
           music.music();
           break;
         case 4:
+          check.check();
           break;
         case 5:
           new Menu();
@@ -86,13 +88,13 @@ public class Main {
 
   public static String peopleprint() {
 
-    System.out.println("¤Hª«¦W¦r:" + people.getName());
-    System.out.println("³Ì²×¥Ø¼Ğ:" + people.getfinalTarget());
+    System.out.println("äººç‰©åå­—:" + people.getName());
+    System.out.println("æœ€çµ‚ç›®æ¨™:" + people.getfinalTarget());
     for (int i = 0; i < people.getsegTarget().length; i++) {
-      System.out.println("¤À¬q¥Ø¼Ğ" + i + ":" + people.getsegTarget()[i]);
+      System.out.println("åˆ†æ®µç›®æ¨™" + i + ":" + people.getsegTarget()[i]);
     }
     for (int i = 0; i < people.getTime().length; i++) {
-      System.out.println("§¹¦¨®É¶¡" + i + ":" + people.getTime()[i]);
+      System.out.println("å®Œæˆæ™‚é–“" + i + ":" + people.getTime()[i]);
     }
 
     return "Sucess";

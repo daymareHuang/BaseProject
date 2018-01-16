@@ -1,12 +1,6 @@
 import java.io.IOException;
 import java.util.Scanner;
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
-import javax.swing.event.*;
-import javax.swing.table.*;
 
-import java.util.*;
 import com.jaunt.JauntException;
 
 public class Main {
@@ -17,7 +11,7 @@ public class Main {
    * 創建人物.
    * 
    * @throws JauntException
-   * @throws IOException 
+   * @throws IOException
    */
   public static void main(String[] args) throws JauntException, IOException {
 
@@ -29,33 +23,39 @@ public class Main {
     people.setPeople();
 
     while (true) {
-      System.out.println("1:可協助的工具");
-      System.out.println("2:顯示人物資訊");
-      System.out.println("3:顯示人物資訊");
-      System.out.println("4:檢視讀書進度");
-      System.out.println("5:娛樂功能");
-      System.out.println("6:建立表格");
-      in = scanner.nextInt();
-      switch (in) {
-      case 1:
-        googleScraperDemo.googlesearch();
-        break;
-      case 2:
-        peopleprint();
-        break;
-      case 3:
-        music.music();
-        break;
-      case 4:
-        break;
-      case 5:
-        break;
-      case 6:
-        new List();
-        break;
-      default:
-        close();
-        break;
+      try {
+        System.out.println("1:可協助的工具");
+        System.out.println("2:顯示人物資訊");
+        System.out.println("3:顯示人物資訊");
+        System.out.println("4:檢視讀書進度");
+        System.out.println("5:娛樂功能");
+        System.out.println("6:建立表格");
+        in = scanner.nextInt();
+        switch (in) {
+        case 1:
+          googleScraperDemo.setKeyword();
+          googleScraperDemo.GoogleSearch();
+          googleScraperDemo.showGoogleSearchResult();
+          break;
+        case 2:
+          peopleprint();
+          break;
+        case 3:
+          music.music();
+          break;
+        case 4:
+          break;
+        case 5:
+          break;
+        case 6:
+          break;
+        default:
+          close();
+          break;
+        }
+
+      } catch (NotEnglishException notEnglish) {
+        notEnglish.printStackTrace();
       }
     }
   }

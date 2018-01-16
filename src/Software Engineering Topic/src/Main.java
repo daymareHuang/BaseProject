@@ -52,6 +52,7 @@ public class Main {
         case 4:
           break;
         case 5:
+          new Menu();
           break;
         case 6:
           new List();

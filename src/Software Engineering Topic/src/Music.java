@@ -44,15 +44,20 @@ public class Music{
       choise.songs(); 
       try{
       ch1 = scanner.nextInt();
-      if(ch1<8){
+      while(1<ch1 && ch1<8){
       mp3.play();
       choise.name(ch1);
       choise.player();
+      if(ch1==1){
+        mp3.stop();
+        break;
+        }
+      else System.out.println("You have to meet the condition.");
+      main(null);
       }
-      else 
-        System.out.println("You have to meet the condition.");
       }catch(Exception c){
         System.out.println("You have to meet the condition.");
+        main(null);
       }
       break;
     case 'b': yt.YT();break;

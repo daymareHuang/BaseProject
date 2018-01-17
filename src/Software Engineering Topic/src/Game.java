@@ -1,4 +1,3 @@
-package main;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -17,6 +16,7 @@ class Game extends JFrame implements MouseListener {
 
   private int map[][]; // 地圖。
   private boolean buttonIsPress[][]; // 判斷按鈕是否按壓。
+  private boolean buttonIsFlag[][];
   private int mapAroundBomb[][]; // 周圍有多少炸彈。
   private int direct[][] = { { 0, 0 }, { 0, 1 }, { 0, -1 }, { 1, 0 }, { -1, 0 }, { 1, 1 }, { -1, -1 }, { -1, 1 },
       { 1, -1 } }; // 8方位。
@@ -35,6 +35,7 @@ class Game extends JFrame implements MouseListener {
     bombnumber = new JLabel("目前炸彈數：" + bombCount);
     map = new int[mapRow][mapCol];
     buttonIsPress = new boolean[mapRow][mapCol];
+    buttonIsFlag = new boolean[mapRow][mapCol];
     mapAroundBomb = new int[mapRow][mapCol];
     setSize(width, height); // 設定大小。
     setResizable(false); // 設定大小為不可調整。
@@ -44,7 +45,6 @@ class Game extends JFrame implements MouseListener {
 
     /* TopBar。 */
     JPanel topPanel = new JPanel();
-
     bombnumber.setText("目前炸彈數：" + bombCount); // 顯示目前標記多少炸彈。
     topPanel.add(bombnumber);
 
@@ -170,12 +170,11 @@ class Game extends JFrame implements MouseListener {
           JOptionPane.showMessageDialog(null, "你踩到地雷了"); // 顯示失敗訊息。
           restart(); // 重新開始。
         } else {
-          if (mapAroundBomb[row][col] == 0 && !buttonIsPress[row][col]) {
-            /* 當按到周圍沒炸彈的按鈕則擴散，且按鈕沒按過。 */
+          if (mapAroundBomb[row][col] == 0 && !buttonIsPress[row][col] ) {
+
 
             Vector<postion> vector = new Vector<postion>(); // 紀錄需要擴散的點。
             vector.add(new postion(row, col));
-            // 判斷點是否符合擴散的需求，直到vector的資料都處理完。
             for (int i = 0; i < vector.size(); i++) {
               for (int j = 0; j < direct.length; j++) {
                 int tempRow = direct[j][0] + vector.get(i).getRow(), tempCol = direct[j][1] + vector.get(i).getCol();
@@ -217,15 +216,18 @@ class Game extends JFrame implements MouseListener {
         }
       } else if (buttonIsPress[row][col] && e.getButton() == MouseEvent.BUTTON2) {
         /* 取消標記的炸彈按紐。 */
+if(        buttonIsFlag[row][col] == true){
+    buttonIsPress[row][col] = false; // 取消按壓。
+    button[row][col].setBackground(Color.WHITE); // 設定按鈕背景顏色。
+    bombCount++; // 炸彈數。
+    bombnumber.setText("目前炸彈數：" + bombCount);
+}
 
-        buttonIsPress[row][col] = false; // 取消按壓。
-        button[row][col].setBackground(Color.WHITE); // 設定按鈕背景顏色。
-        bombCount++; // 炸彈數。
-        bombnumber.setText("目前炸彈數：" + bombCount);
       } else if (e.getButton() == MouseEvent.BUTTON3 && !buttonIsPress[row][col]) {
         /* 標記炸彈。並判斷是否結束遊戲。 */
 
         ((JButton) e.getSource()).setBackground(Color.GREEN); // 設定按鈕背景顏色。
+        buttonIsFlag[row][col] = true;
         buttonIsPress[row][col] = true; // 設定按鈕為按過。
         bombCount--; 
         bombnumber.setText("目前炸彈數：" + bombCount);
@@ -237,7 +239,7 @@ class Game extends JFrame implements MouseListener {
           for (int i = 0; i < mapRow; i++) {
             for (int j = 0; j < mapCol; j++) {
               if (map[i][j] == 1)
-                if (buttonIsPress[i][j] != true)
+                if (buttonIsFlag[i][j] != true)
                   endGame = false;
             }
           }

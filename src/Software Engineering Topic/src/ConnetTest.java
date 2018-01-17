@@ -15,4 +15,10 @@ public class ConnetTest {
     connet.YT();
   }
 
+  public void says() throws IOException {
+    Connet connet = new Connet();
+    assertEquals("https://www.youtube.com/",connet.targetUrl);
+    connet.says();
+  }
+  
 }

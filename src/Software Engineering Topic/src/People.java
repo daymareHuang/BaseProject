@@ -25,21 +25,18 @@ public class People {
 
   /**
    * 獲取名字.
+   * @throws Exception 
    */
-  public void setName() {
+  public void setName() throws Exception {
     done = false;
 
     while (done != true) {
-      try {
         System.out.println("名字:");
         name = scanner.nextLine();
         if (name.equals("")) {
           throw new Exception("名字不可為空白");
         }
         done = true;
-      } catch (Exception e) {
-        System.out.println(e.getMessage());
-      }
     }
     ;
   }
@@ -59,14 +56,14 @@ public class People {
 
   /**
    * 獲取完成時間.
+   * @throws Exception 
    */
-  public void setTime() {
+  public void setTime() throws Exception {
     done = false;
 
     int[] time = new int[3];
 
     while (done != true) {
-      try {
         System.out.println("目標完成時間，範例填入0204");
         for (int i = 0; i < time.length; i++) {
           System.out.println("完成時間" + (i + 1) + ":");
@@ -76,9 +73,6 @@ public class People {
           throw new Exception("前目標時間，不可超越後目標");
         }
         done = true;
-      } catch (Exception e) {
-        System.out.println(e.getMessage());
-      }
 
     }
     ;
@@ -92,14 +86,14 @@ public class People {
 
   /**
    * 獲取階段目標.
+   * @throws Exception 
    */
-  public void setsegTarget() {
+  public void setsegTarget() throws Exception {
     done = false;
 
     String[] target = new String[3];
     while (done != true) {
       System.out.println("階段目標");
-      try {
         for (int i = 0; i < target.length; i++) {
           System.out.println("階段目標" + (i + 1) + ":");
           target[i] = scanner.nextLine();
@@ -108,9 +102,6 @@ public class People {
           }
         }
         done = true;
-      } catch (Exception e) {
-        System.out.println(e.getMessage());
-      }
     }
     ;
 

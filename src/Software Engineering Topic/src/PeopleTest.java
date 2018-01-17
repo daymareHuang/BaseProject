@@ -11,7 +11,7 @@ public class PeopleTest {
   protected People people = new People();
   protected Scanner scanner = new Scanner(System.in);
 
- 
+
   @Test
   public void testSetPeople() {
     people.setPeople();
@@ -52,7 +52,12 @@ public class PeopleTest {
   public void testGetName() {
     String name;
     name = scanner.nextLine();
-    people.setName();
+    try {
+      people.setName();
+    } catch (Exception e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
     assertEquals(name, people.getName());
   }
 
@@ -61,7 +66,18 @@ public class PeopleTest {
 
     String name;
     name = scanner.nextLine();
-    people.setName();
+    try {
+      people.setName();
+    } catch (Exception e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
+    try {
+      people.setName();
+    } catch (Exception e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
     assertEquals(name, people.getName());
 
   }
@@ -89,7 +105,12 @@ public class PeopleTest {
       System.out.println("完成時間" + (i + 1) + ":");
       testtime[i] = scanner.nextInt();
     }
-    people.setTime();
+    try {
+      people.setTime();
+    } catch (Exception e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
       assertArrayEquals(testtime, people.getTime());
 
   }
@@ -101,7 +122,12 @@ public class PeopleTest {
       System.out.println("完成時間" + (i + 1) + ":");
       testtime[i] = scanner.nextInt();
     }
-    people.setTime();
+    try {
+      people.setTime();
+    } catch (Exception e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
     assertArrayEquals(testtime, people.getTime());
   }
 
@@ -112,7 +138,12 @@ public class PeopleTest {
       System.out.println("階段目標" + (i + 1) + ":");
       target[i] = scanner.nextLine();
     }
-    people.setsegTarget();
+    try {
+      people.setsegTarget();
+    } catch (Exception e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
    assertArrayEquals(target, people.getsegTarget());
   }
 
@@ -123,7 +154,12 @@ public class PeopleTest {
       System.out.println("階段目標" + (i + 1) + ":");
       target[i] = scanner.nextLine();
     }
-    people.setsegTarget();
+    try {
+      people.setsegTarget();
+    } catch (Exception e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
       assertArrayEquals(target, people.getsegTarget());
   }
 

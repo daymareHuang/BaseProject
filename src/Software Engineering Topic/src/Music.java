@@ -5,10 +5,9 @@ import java.util.Scanner;
 
 public class Music{
 
-  public static final String Music = null;
   private static Scanner scanner;
 
-  public static void Music() throws IOException ,Exception{
+  public static void main(String[] args) throws IOException ,Exception{
     MP3Player mp3 = new MP3Player();
     Connet yt = new Connet();
     Choise choise = new Choise();
@@ -23,17 +22,21 @@ public class Music{
       choise.songs(); 
       try{
       ch1 = scanner.nextInt();
-      if(ch1<8){
+      if(1<ch1 && ch1<8){
       mp3.play();
       choise.name(ch1);
       choise.player();
       }
+      else if(ch1==1){
+        mp3.stop();
+        break;
+        }
       else 
         System.out.println("You have to meet the condition.");
-      Music();
+      main(null);
       }catch(Exception c){
         System.out.println("You have to meet the condition.");
-        Music();
+        main(null);
       }
       break;
     case 'A':
@@ -54,7 +57,9 @@ public class Music{
       break;
     case 'b': yt.YT();break;
     case 'B': yt.YT();break; 
-    default: Music();
+    case 'c': yt.says();break;
+    case 'C': yt.says();break;
+    default: main(null);
       }
     }
   }

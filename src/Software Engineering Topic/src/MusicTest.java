@@ -1,14 +1,15 @@
 package music_player;
 
-import static org.junit.Assert.*;
+import java.io.IOException;
 
 import org.junit.Test;
 
 public class MusicTest {
 
+  Music music = new Music();
   @Test
-  public void testMusic() {
-    fail("Not yet implemented");
+  public void testMain() throws IOException, Exception {
+    Music.main(null);
   }
 
 }

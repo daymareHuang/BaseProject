@@ -13,6 +13,8 @@ public class Choise {
     System.out.println("Input your choose.");
     System.out.println("a.Show the phone data");
     System.out.println("b.Connet to the Youtube");
+    System.out.println("c.Get the Inspirational words");
+    System.out.println("d.Print other to get out.");
   }
   
   public void songs() {
@@ -70,10 +72,15 @@ public void player() throws InputMismatchException{
   System.out.println("Please choise the song.");
   songs();
   ch1 = scanner.nextInt();
+  if(ch1<8){
     mp3.play();
     name(ch1);
+  }
+  else 
+    System.out.println("You have to meet the condition.");
+  Music.main(null);
   break;
-  case 6:Music.Music();break;
+  case 6:Music.main(null);break;
   default:player();
     }
   }while(ch1!=1);

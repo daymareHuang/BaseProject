@@ -64,7 +64,7 @@ public class Music{
     case 'B': yt.YT();break; 
     case 'c': yt.says();break;
     case 'C': yt.says();break;
-    default: main(null);
+    default: break;
       }
     }
   }
